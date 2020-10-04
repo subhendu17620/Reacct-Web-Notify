@@ -1,25 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import poster from "./poster.svg";
-import firebase from "./firebase";
 import "./App.css";
 
 function App() {
-  useEffect(() => {
-    const messaging = firebase.messaging();
-    messaging
-      .requestPermission()
-      .then(() => {
-        return messaging.getToken();
-      })
-      .then((token) => {
-        console.log("token: ", token);
-      })
-      .catch((error) => {
-        console.log("error ::", error);
-      });
-  }, []);
-
   return (
     <div className="App">
       <header className="App-header">
